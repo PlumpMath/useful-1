@@ -19,3 +19,12 @@
 (defn explode-to-digits [number]
   "explode-to-digits takes an integer and returns a sequence of it's individual digits"
   (map #(Character/getNumericValue %) (str number)))
+
+
+(defn all-different?
+  "Annoyingly, the built-in distinct? doesn't handle 0 args, so we need
+  to write our own version that considers the empty-list to be distinct"
+  [s]
+  (if (seq s)
+    (apply distinct? s)
+    true))
